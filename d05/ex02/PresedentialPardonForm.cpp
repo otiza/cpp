@@ -6,7 +6,7 @@ PresidentialPardonForm::PresidentialPardonForm(): Form("PresidentialPardonForm",
 	std::cout << "PresidentialPardonForm constructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target): Form("PresidentialPardonForm", 25, 5), target(trgt)
+PresidentialPardonForm::PresidentialPardonForm(std::string trgt): Form("PresidentialPardonForm", 25, 5), target(trgt)
 {
 	std::cout << "PresidentialPardonForm target constructor called" << std::endl;
 }
@@ -21,7 +21,7 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &src): For
 // Deconstructors
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-	std::cout << "PresidentialPardonForm Dstructor called" << std::endl;
+	std::cout << "PresidentialPardonForm Destructor called" << std::endl;
 }
 
 // Overloaded Operators
@@ -35,6 +35,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 
 void	PresidentialPardonForm::execute(Bureaucrat const &executor)const
 {
+	std::cout << "reqd here skldqsjd ::"<< (int)executor.getGrade()  << " "<<  this->getExecGrade() <<std::endl;
 	if ((int)executor.getGrade() > this->getExecGrade())
 		throw (Bureaucrat::GradeTooLowException());
 	else if (this->getIsSignedBool() == false)
@@ -45,7 +46,7 @@ void	PresidentialPardonForm::execute(Bureaucrat const &executor)const
 
 std::string	PresidentialPardonForm::getTarget(void)const
 {
-	return (this->_target);
+	return (this->target);
 }
 
 std::ostream	&operator<<(std::ostream &o, PresidentialPardonForm *a)

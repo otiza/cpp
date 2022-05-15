@@ -40,16 +40,16 @@ Bureaucrat::Bureaucrat(const std::string nm, int gd): name(nm)
 	std::cout << "Bureaucrat Name and Grade constructor" << std::endl;
 	try
 	{
-		this->setGrade(grade);
+		this->setGrade(gd);
 	}
-	catch(Bureaucrat::GradeTooHighException &f)
+	catch(Bureaucrat::GradeTooHighException &e)
 	{
-		std::cerr << "construction failed" << f.what() << std::endl <<"Grade set to 1"<< std::endl;
+		std::cerr << "construction failed" << e.what() << std::endl <<"Grade set to 1"<< std::endl;
 		this->setGrade(1);
 	}
-	catch(Bureaucrat::GradeTooLowException &f)
+	catch(Bureaucrat::GradeTooLowException &e)
 	{
-		std::cerr << "Construction failed" << f.what() << std::endl <<"Grade set to 150" << std::endl;
+		std::cerr << "Construction failed" << e.what() << std::endl <<"Grade set to 150" << std::endl;
 		this->setGrade(150);
 	}
 }
@@ -86,7 +86,7 @@ void	Bureaucrat::decrementGrade(void)
 		std::cout << "decrement grade of " << this->getName() << std::endl;
 		this->setGrade(this->grade + 1);
 	}
-	catch(Bureaucrat::GradeTooHighException &f)
+	catch(Bureaucrat::GradeTooLowException &f)
 	{
 		std::cerr << "decrement grade fail" << f.what() << std::endl;
 	}
@@ -101,15 +101,19 @@ size_t	Bureaucrat::getGrade(void)const
 {
 	return (this->grade);
 }
+void	Bureaucrat::signForm(Form &form)
+{
+		form.beSigned(*this);
+}
 void	Bureaucrat::executeForm(Form &form)const
 {
 		form.execute(*this);
 }
 void	Bureaucrat::setGrade(int gd)
 {
-	if (grade > 150)
+	if (gd > 150)
 		throw Bureaucrat::GradeTooLowException();
-	else if (grade < 1)
+	else if (gd < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else
 		this->grade = gd;

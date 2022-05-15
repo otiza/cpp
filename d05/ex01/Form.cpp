@@ -1,5 +1,5 @@
 #include "Form.hpp"
-Form::Form(void): _name("randim"), sign(false), signreq(150), execreq(150)
+Form::Form(void): name("random"), sign(false), signreq(150), execreq(150)
 {
 	std::cout << "Form constructor called" << std::endl;
 }
@@ -13,7 +13,7 @@ Form::Form(const Form &src): name(src.getName()), sign(false), signreq(src.getSi
 Form::Form(int _signreq, int _execreq): name("random"), sign(false), signreq(_signreq), execreq(_execreq)
 {
 	std::cout << "Form Sign and exec requirement constructor called"<<std::endl;
-	std::endl;
+
 	const int i = this->getSignGrade();
 	const int j = this->getExecGrade();
 	if (i > 150 || j > 150)
@@ -22,12 +22,12 @@ Form::Form(int _signreq, int _execreq): name("random"), sign(false), signreq(_si
 		throw(Form::GradeTooHighException());
 }
 
-Form::Form(const std::string nm): name(nm), _is_signed(false), _sign_grade(150), _exec_grade(150)
+Form::Form(const std::string nm): name(nm), sign(false), signreq(150), execreq(150)
 {
 	std::cout << "Form name Constructor called" << std::endl;
 }
 
-Form::Form(const std::string nm,  int _signreq, int _execreq): _name(nm), sign(false), signreq(_signreq), execreq(_execreq)
+Form::Form(const std::string nm,  int _signreq, int _execreq): name(nm), sign(false), signreq(_signreq), execreq(_execreq)
 {
 	std::cout << "Form name , signe and exec requirements constructor called" << std::endl;
 	const int i = this->getSignGrade();
@@ -90,10 +90,10 @@ int	Form::getExecGrade(void)const
 {
 	return (this->execreq);
 }
-void Form::execute(Bureaucrat const &executor)const
+/*void Form::execute(Bureaucrat const &executor)const
 {
 	(void)executor;
-}
+}*/
 const char *Form::FormNotSignedException::what(void) const throw()
 {
 	return ("form need to be signed");
@@ -112,9 +112,9 @@ const char *Form::GradeTooHighException::what(void) const throw()
 std::ostream	&operator<<(std::ostream &o, Form *a)
 {
 	o << "Form " << a->getName() <<
-	"\nsign-grade: " << a->getSignGrade() <<
-	"\nexec-grade: " << a->getExecGrade() <<
-	"\nis signed: " << a->getIsSigned() <<
+	":\n\tsign-grade:\t" << a->getSignGrade() <<
+	"\n\texec-grade:\t" << a->getExecGrade() <<
+	"\n\tis signed:\t" << a->getIsSigned() <<
 	std::endl;
 	return (o);
 }

@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iostream>
-
+class Bureaucrat;
 class Form
 {
 	private:
@@ -28,7 +28,7 @@ class Form
 		bool getIsSignedBool(void)const;
 		int getSignGrade(void)const;
 		int getExecGrade(void)const;
-    	~Form();
+    	virtual ~Form();
 	class GradeTooLowException : public std::exception
 	{
 	public:

@@ -20,7 +20,8 @@ class Bureaucrat
 
 		void incrementGrade(void);
 		void decrementGrade(void);
-		void executeForm(Form &form)const;
+		//void executeForm(Form &form)const;
+		void signForm(Form &form);
 
 		const std::string getName(void)const;
 		size_t getGrade(void)const;
