@@ -5,7 +5,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(): Form("ShrubberyCreationForm", 14
 	std::cout << "ShrubberyCreationForm constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form("ShrubberyCreationForm", 145, 137), target(trgt)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string trgt): Form("ShrubberyCreationForm", 145, 137), target(trgt)
 {
 	std::cout << "ShrubberyCreationForm target constructor for target called" << std::endl;
 }
@@ -45,34 +45,30 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor)const
 		for (int i = 0; i < 5; i++)
 		{
 			outfile <<
-			"         v" << std::endl <<
-			"        >X<" << std::endl <<
-			"         A" << std::endl <<
-			"        d$b" << std::endl <<
-			"      .d\\$$b." << std::endl <<
-			"    .d$i$$\\$$b." << std::endl <<
-			"       d$$@b" << std::endl <<
-			"      d\\$$$ib" << std::endl <<
-			"    .d$$$\\$$$b" << std::endl <<
-			"  .d$$@$$$$\\$$ib." << std::endl <<
-			"      d$$i$$b" << std::endl <<
-			"     d\\$$$$@$b" << std::endl <<
-			"  .d$@$$\\$$$$$@b." << std::endl <<
-			".d$$$$i$$$\\$$$$$$b." << std::endl <<
-			"      .d\\$$b." << std::endl <<
-			"    .d$i$$\\$$b." << std::endl <<
-			"       d$$@b" << std::endl <<
-			"      d\\$$$ib" << std::endl <<
-			"    .d$$$\\$$$b" << std::endl <<
-			"  .d$$@$$$$\\$$ib." << std::endl <<
-			"      d$$i$$b" << std::endl <<
-			"     d\\$$$$@$b" << std::endl <<
-			"  .d$@$$\\$$$$$@b." << std::endl <<
-			".d$$$$i$$$\\$$$$$$b." << std::endl <<
-			"        ###" << std::endl <<
-			"        ###" << std::endl <<
-			"        ###" << std::endl <<
-		std::endl;
+			"                     .                           " << std::endl <<
+			"                     M                           " << std::endl <<
+			"                    dM                           " << std::endl <<
+			"                    MMr                          " << std::endl <<
+			"                   4MMML                  .      " << std::endl <<
+			"                   MMMMM.                xf      " << std::endl <<
+			"   .               MMMMM               .MM-      " << std::endl <<
+			"    Mh..          +MMMMMM            .MMMM       " << std::endl <<
+			"    .MMM.         .MMMMML.          MMMMMh       " << std::endl <<
+			"     )MMMh.        MMMMMM         MMMMMMM        " << std::endl <<
+			"      3MMMMx.     'MMMMMMf       xnMMMMMM        " << std::endl <<
+			"      '*MMMMM      MMMMMM.      nMMMMMMP         " << std::endl <<
+			"        *MMMMMx    MMMMMM;     .MMMMMMM=         " << std::endl << 
+			"         *MMMMMh   ;MMMMM;    JMMMMMMP           " << std::endl <<
+			"           MMMMMM   3MMMM.   dMMMMMM            ." << std::endl <<
+			"            MMMMMM  MMMM;   .MMMMM(         .nnMP" << std::endl <<
+			" =..         *MMMMx  MMM   dMMMM        .nnMMMMM*" << std::endl <<
+			"  MMn...     'MMMMr  'MM   MMMM     .nMMMMMMM*   " << std::endl <<
+			"   4MMMMnn..   *MMM   MM  MMP    .dMMMMMMMMM     " << std::endl <<
+			"     ^MMMMMMMMx.  *ML M  .M*  .MMMMMM***         " << std::endl <<
+			"        *PMMMMMMhn. *x >  M  .MMMM**             " << std::endl <<
+			"            **MMMMhx/.h/  .=*                    " << std::endl <<
+			"                    .PP;%....                    " << std::endl;
+
 		}
 		outfile.close();
 	}

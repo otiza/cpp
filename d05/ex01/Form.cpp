@@ -1,3 +1,4 @@
+#include "Form.hpp"
 Form::Form(void): _name("randim"), sign(false), signreq(150), execreq(150)
 {
 	std::cout << "Form constructor called" << std::endl;
