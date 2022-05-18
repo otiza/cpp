@@ -1,15 +1,15 @@
 #pragma once
 
-template< typename T > // defines, T is a template
+template< typename T >
 
-const T	&max(const T &x ,const T &y) // more const, more better
+const T	&max(const T &x ,const T &y)
 {
 	return (x >= y ? x : y);
 }
 
-template< typename U > // defines, U is a template
+template< typename U >
 
-const U	&min(const U &x ,const U &y) // more const, more better
+const U	&min(const U &x ,const U &y)
 {
 	return (x <= y ? x : y);
 }
